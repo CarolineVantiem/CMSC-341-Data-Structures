@@ -1,0 +1,68 @@
+/* Caroline Vantiem
+   Cvantie1@umbc.edu
+   File: HashTable.h
+   CMSC 341 F18 - Proj5
+*/
+
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
+
+#include <iostream>
+#include <string.h>
+#include <cstring>
+#include <stdlib.h>
+#include <stdexcept>
+using namespace std;
+
+unsigned int hashCode(const char *str);
+
+const int DELTED = 1;
+
+class HashTable {
+ public:
+  HashTable(int n=101);
+  ~HashTable();
+  HashTable(HashTable& other);
+  
+  const HashTable& operator= (HashTable& rhs);
+  
+  void insert(const char *str) ;
+  bool find(const char *str) ;
+  char * remove(const char *str) ;
+  
+  bool isRehashing() ;
+  int tableSize(int table=0) ;
+  int size(int table=0) ;
+  const char * at(int index, int table=0) ;
+  void dump() ;
+
+  // helper func.
+  void insertT1(const char *str);
+  void insertT2(const char *str);
+  void rehash();
+  void clusterRehash(unsigned int index);
+
+ private:
+  // HashTables - member variables
+  // table 0 - table 1 - table 2
+
+  char **m_table0;
+  int m_cap0;
+  int m_size0;
+  
+  char **m_table1;
+  int m_cap1;
+  int m_size1;
+  
+  char **m_table2;
+  int m_cap2;
+  int m_size2;
+  
+  // status for rehashing
+  // 0 = not rehashing, 1 = rehashing, 2 = need table2 for rehashing
+  int m_status;
+  
+  static char *const DELETED;
+};
+
+#endif
