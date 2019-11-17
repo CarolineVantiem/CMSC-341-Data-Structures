@@ -1,0 +1,26 @@
+We define a full binary tree to be a rooted tree such that every node in the tree either has two children or has no children. (I.e., a node in a full binary tree is not allowed to have exactly one child.) We call nodes with two children internal nodes and nodes without any children leaves.
+
+Let intNodes(T) denote the number of internal nodes in a full binary tree T. and let leaves(T) denote the number of leaves in a full binary tree T. Use the paragraphs below to assemble a proof by induction that in every full binary tree T, leaves(T) = intNodes(T) + 1.
+
+// Caroline Vantiem
+// Question 1
+
+A2: Induction Hypothesis P(n): for every full binary tree T with ≤ n internal nodes, leaves(T) = intNodes(T) + 1
+
+B2: Base case P(0): the only full binary tree with 0 internal nodes is the full binary tree that consists of a single leaf and zero internal nodes, hence P(0) holds.
+
+C6: Suppose that we have a full binary tree with n+1 internal nodes.
+
+D2: Consider the root of T. If we remove the root from T, we have two subtrees TL and TR. Both TL and TR. are also full binary trees.
+
+E7: Since TL and TR have fewer internal nodes than T, by the induction hypothesis, we know that leaves(TL) = intNodes(TL) + 1 and leaves(TR) = intNodes(TR) + 1. 
+
+F4: By construction, we know that intNodes( T ) = 1 + intNodes( TL ) + intNodes( TR ).
+
+G5: Also, leaves( T ) = leaves( TL ) + leaves( TR ).
+
+H2: Finally, by applying some algebra, we get leaves( T ) = intNodes( T ) + 1.
+
+I5: Therefore, the induction hypothesis holds for all full binary trees with n+1 internal nodes and we have completed the proof by induction
+
+(A2, B2, C6, D2, E7, F4, G5, H2, I5)
